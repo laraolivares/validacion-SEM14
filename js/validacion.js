@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     botonReg.addEventListener('click', function (){
         this.value = this.value.trim(); 
 
-        if (password1.value != password2.value || !password1.checkValidity()) {
+        if (password1.value !== password2.value || !password1.checkValidity() || (password1.value === "" && password2.value === ""))  {
             password2.setCustomValidity("Contraseñas deben ser iguales");
             validity = false;
             errorMsg.textContent = "Debe ingresar una contraseña con al menos 6 caracteres";
