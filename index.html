@@ -14,7 +14,7 @@
 
   <div class="container">
     <main>
-      <form action="#" method="get" class="row mt-4">
+      <form action="#" method="get" class="row mt-4" id="myForm" type="submit">
         <div class="col">
           <h1 class="mb-3">Registro</h1>
           <hr class="my-4">
@@ -34,14 +34,16 @@
               <input type="email" class="form-control" id="email">
             </div>
 
-            <div class="col-sm-6">
-              <label for="password1" class="form-label">Contraseña</label>
+            <div class="col-sm-6" id="passwordDiv">
+              <label for="password1" id= "password" class="form-label">Contraseña</label>
               <input type="password" class="form-control" id="password1">
+              <div class="form-text" id="passwordError"></div>
             </div>
 
             <div class="col-sm-6">
               <label for="password2" class="form-label">Repetir contraseña</label>
               <input type="password" class="form-control" id="password2">
+              <div class="form-text" id="passwordErrorRep"></div>
             </div>
 
             <div class="col-sm-12">
@@ -50,7 +52,7 @@
             </div>
 
 
-            <button class="btn btn-primary" type="submit">Registrarme</button>
+            <button class="btn btn-primary" id="botonReg" type="submit">Registrarme</button>
 
 
           </div>
