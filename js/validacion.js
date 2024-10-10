@@ -44,6 +44,7 @@ email.addEventListener('input', function () {
     this.classList.remove('is-valid');
     this.classList.add('is-invalid');
     this.setCustomValidity('Por favor, ingrese un email válido');
+    this.setCustomValidity('');
   }
 });
   
