@@ -38,7 +38,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const terminos = document.getElementById("terminos");
     const modalTerminosBtn = document.getElementById("modalTerminosBtn");
     const termsFeedback = document.getElementById("termsFeedback");
-  
+    const nombre = document.getElementById("nombre");
+    const apellido = document.getElementById("apellido");
+
+    [nombre, apellido].forEach(input => {
+      if (!input.value.trim()) {
+        input.setCustomValidity("Este campo es obligatorio.");
+        input.reportValidity();
+        isValid = false;
+      } else {
+        input.setCustomValidity("");
+      }
+    });
     
     const validateTerms = () => {
       if (!terminos.checked) {
