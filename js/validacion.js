@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     botonReg.addEventListener('click', function (){
         this.value = this.value.trim(); 
 
-        if (password1.value != password2.value || !password1.checkValidity()) {
+        if (password1.value !== password2.value || !password1.checkValidity() || (password1.value === "" && password2.value === ""))  {
             password2.setCustomValidity("Contraseñas deben ser iguales");
             validity = false;
             errorMsg.textContent = "Debe ingresar una contraseña con al menos 6 caracteres";
@@ -38,23 +38,39 @@ document.addEventListener("DOMContentLoaded", function() {
     const terminos = document.getElementById("terminos");
     const modalTerminosBtn = document.getElementById("modalTerminosBtn");
     const termsFeedback = document.getElementById("termsFeedback");
-    const terminosError = document.getElementById("terminosError");
-  
+    const nombre = document.getElementById("nombre");
+    const apellido = document.getElementById("apellido");
     
     const validateTerms = () => {
       if (!terminos.checked) {
         terminos.setCustomValidity("Debes aceptar los términos y condiciones.");
         termsFeedback.classList.remove("d-none");
-        modalTerminosBtn.classList.add("is-invalid");
-        terminosError.textContent = "Debes aceptar los términos y condiciones.";
-        terminosError.style.color = "red";
+        modalTerminosBtn.classList.add("invalid");
       } else {
         terminos.setCustomValidity("");
         termsFeedback.classList.add("d-none");
-        modalTerminosBtn.classList.remove("is-invalid");
+        modalTerminosBtn.classList.remove("invalid");
       }
     };
-  
+
+    const validateInputs = () => {
+  [nombre, apellido].forEach(input => {
+    if (!input.value.trim()) {
+      input.setCustomValidity("Este campo es obligatorio.");
+      input.reportValidity();
+      input.classList.add("is-invalid");
+      input.classList.remove("is-valid");
+    } else {
+      input.setCustomValidity("");
+      input.classList.remove("is-invalid");
+      input.classList.add("is-valid");
+    }
+  });
+};
+
+[nombre, apellido].forEach(input => {
+  input.addEventListener("input", validateInputs);
+});
     
     form.addEventListener("submit", function(event) {
       validateTerms(); 
@@ -72,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Validación del email
 const email = document.getElementById('email');
-const errorEmail = document.getElementById("emailError")
 
 email.addEventListener('input', function () {
   this.value = this.value.trim(); // Elimina espacios
@@ -84,8 +99,6 @@ email.addEventListener('input', function () {
     this.classList.add('is-invalid');
     this.setCustomValidity('Por favor, ingrese un email válido');
     this.setCustomValidity('');
-    errorEmail.textContent = 'Por favor, ingrese un email válido';
-    errorEmail.style.color = "red";
   }
 });
 
