@@ -54,15 +54,23 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     const validateInputs = () => {
-        [nombre, apellido].forEach(input => {
-            if (!input.value.trim()) {
-                input.setCustomValidity("Este campo es obligatorio.");
-                input.reportValidity();
-            } else {
-                input.setCustomValidity("");
-            }
-        });
-    };
+  [nombre, apellido].forEach(input => {
+    if (!input.value.trim()) {
+      input.setCustomValidity("Este campo es obligatorio.");
+      input.reportValidity();
+      input.classList.add("is-invalid");
+      input.classList.remove("is-valid");
+    } else {
+      input.setCustomValidity("");
+      input.classList.remove("is-invalid");
+      input.classList.add("is-valid");
+    }
+  });
+};
+
+[nombre, apellido].forEach(input => {
+  input.addEventListener("input", validateInputs);
+});
     
     form.addEventListener("submit", function(event) {
       validateTerms(); 
