@@ -38,17 +38,20 @@ document.addEventListener("DOMContentLoaded", function() {
     const terminos = document.getElementById("terminos");
     const modalTerminosBtn = document.getElementById("modalTerminosBtn");
     const termsFeedback = document.getElementById("termsFeedback");
+    const terminosError = document.getElementById("terminosError");
   
     
     const validateTerms = () => {
       if (!terminos.checked) {
         terminos.setCustomValidity("Debes aceptar los términos y condiciones.");
         termsFeedback.classList.remove("d-none");
-        modalTerminosBtn.classList.add("invalid");
+        modalTerminosBtn.classList.add("is-invalid");
+        terminosError.textContent = "Debes aceptar los términos y condiciones.";
+        terminosError.style.color = "red";
       } else {
         terminos.setCustomValidity("");
         termsFeedback.classList.add("d-none");
-        modalTerminosBtn.classList.remove("invalid");
+        modalTerminosBtn.classList.remove("is-invalid");
       }
     };
   
@@ -69,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Validación del email
 const email = document.getElementById('email');
+const errorEmail = document.getElementById("emailError")
 
 email.addEventListener('input', function () {
   this.value = this.value.trim(); // Elimina espacios
@@ -80,6 +84,8 @@ email.addEventListener('input', function () {
     this.classList.add('is-invalid');
     this.setCustomValidity('Por favor, ingrese un email válido');
     this.setCustomValidity('');
+    errorEmail.textContent = 'Por favor, ingrese un email válido';
+    errorEmail.style.color = "red";
   }
 });
 
