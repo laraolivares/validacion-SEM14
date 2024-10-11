@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
     apellido.addEventListener("input", validateInputs);
     
     form.addEventListener("submit", function(event) {
+      validateInputs();
       validateTerms(); 
       if (!form.checkValidity()) {
         event.preventDefault(); 
