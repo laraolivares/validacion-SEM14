@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const termsFeedback = document.getElementById("termsFeedback");
     const nombre = document.getElementById("nombre");
     const apellido = document.getElementById("apellido");
+    const errorNombre = document.getElementById("faltaNombre");
+    const errorApellido = document.getElementById("faltaApellido");
+   
     
     const validateTerms = () => {
       if (!terminos.checked) {
@@ -60,6 +63,10 @@ document.addEventListener("DOMContentLoaded", function() {
       input.reportValidity();
       input.classList.add("is-invalid");
       input.classList.remove("is-valid");
+      errorNombre.style.color = "red";
+      errorNombre.textContent = "Campo obligatorio";
+      errorApellido.style.color = "red";
+      errorApellido.textContent = "Campo obligatorio";
     } else {
       input.setCustomValidity("");
       input.classList.remove("is-invalid");
