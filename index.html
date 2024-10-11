@@ -34,7 +34,8 @@
 
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" required>
+              <input type="email" class="form-control" id="email" required> 
+              <div class="form-text" id="faltaEmail"></div>
             </div>
 
 
@@ -53,8 +54,10 @@
             </div>
 
             <div class="col-sm-12">
-              <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
-                data-bs-target="#modalTerminos">Términos del servicio</button>
+              <div class="form-text" id="condiciones">
+                <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
+                data-bs-target="#modalTerminos" id="modalTerminosBtn">Términos del servicio</button>
+              </div>
             </div>
 
 
