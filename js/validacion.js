@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector("#myForm");
   const botonReg = document.getElementById('botonReg');
@@ -95,5 +96,3 @@ document.addEventListener('DOMContentLoaded', function() {
       form.classList.add('was-validated');
   });
 });
-
-  
