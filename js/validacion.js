@@ -57,27 +57,37 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     const validateInputs = () => {
-  [nombre, apellido].forEach(input => {
-    if (!input.value.trim()) {
-      input.setCustomValidity("Este campo es obligatorio.");
-      input.reportValidity();
-      input.classList.add("is-invalid");
-      input.classList.remove("is-valid");
-      errorNombre.style.color = "red";
-      errorNombre.textContent = "Campo obligatorio";
-      errorApellido.style.color = "red";
-      errorApellido.textContent = "Campo obligatorio";
-    } else {
-      input.setCustomValidity("");
-      input.classList.remove("is-invalid");
-      input.classList.add("is-valid");
-    }
-  });
-};
+// Validar el nombre
+        if (!nombre.value.trim()) {
+            nombre.setCustomValidity("Este campo es obligatorio.");
+            errorNombre.style.color = "red";
+            errorNombre.textContent = "Campo obligatorio";
+            nombre.classList.add("is-invalid");
+            nombre.classList.remove("is-valid");
+        } else {
+            nombre.setCustomValidity("");
+            nombre.classList.remove("is-invalid");
+            nombre.classList.add("is-valid");
+            errorNombre.textContent = "";
+        }
 
-[nombre, apellido].forEach(input => {
-  input.addEventListener("input", validateInputs);
-});
+  // Validar el apellido
+        if (!apellido.value.trim()) {
+            apellido.setCustomValidity("Este campo es obligatorio.");
+            errorApellido.style.color = "red";
+            errorApellido.textContent = "Campo obligatorio";
+            apellido.classList.add("is-invalid");
+            apellido.classList.remove("is-valid");
+        } else {
+            apellido.setCustomValidity("");
+            apellido.classList.remove("is-invalid");
+            apellido.classList.add("is-valid");
+            errorApellido.textContent = "";
+        }
+    };
+
+    nombre.addEventListener("input", validateInputs);
+    apellido.addEventListener("input", validateInputs);
     
     form.addEventListener("submit", function(event) {
       validateTerms(); 
