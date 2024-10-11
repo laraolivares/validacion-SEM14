@@ -15,7 +15,8 @@
   <div class="container">
     <main>
 
-      <form action="#" method="get" class="row mt-4" id="myForm" type="submit" novalidate>
+
+      <form action="#" method="get" class="row mt-4" id="myForm" novalidate>
         <div class="col">
           <h1 class="mb-3">Registro</h1>
           <hr class="my-4">
@@ -23,47 +24,44 @@
             <div class="col-sm-6">
               <label for="nombre" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="nombre" required>
-              <div class="form-text" id="faltaNombre"></div>
+              <div class="form-text text-danger" id="faltaNombre"></div>
             </div>
 
             <div class="col-sm-6">
               <label for="apellido" class="form-label">Apellido</label>
               <input type="text" class="form-control" id="apellido" required>
-              <div class="form-text" id="faltaApellido"></div>
+              <div class="form-text text-danger" id="faltaApellido"></div>
+
             </div>
 
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" required> 
-              <div class="form-text" id="faltaEmail"></div>
+
+              <input type="email" class="form-control" id="email" required>
+              <div class="form-text text-danger" id="faltaEmail"></div>
             </div>
 
-
-            <div class="col-sm-6" id="passwordDiv">
-              <label for="password1" id= "password" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="password1">
-              <div class="form-text" id="passwordError"></div>
-
+            <div class="col-sm-6">
+              <label for="password1" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password1" required minlength="6">
+              <div class="form-text text-danger" id="passwordError"></div>
             </div>
 
             <div class="col-sm-6">
               <label for="password2" class="form-label">Repetir contraseña</label>
 
-              <input type="password" class="form-control" id="password2">
-              <div class="form-text" id="passwordErrorRep"></div>
+              <input type="password" class="form-control" id="password2" required>
+              <div class="form-text text-danger" id="passwordErrorRep"></div>
             </div>
 
             <div class="col-sm-12">
-              <div class="form-text" id="condiciones">
-                <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
-                data-bs-target="#modalTerminos" id="modalTerminosBtn">Términos del servicio</button>
-              </div>
+              <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal" data-bs-target="#modalTerminos" id="modalTerminosBtn">
+                Términos del servicio
+              </button>
+              <span id="termsFeedback" class="text-danger d-none">Debes aceptar los términos y condiciones</span>
             </div>
 
-
             <button class="btn btn-primary" id="botonReg" type="submit">Registrarme</button>
-
-
           </div>
         </div>
       </form>
@@ -71,13 +69,12 @@
     </main>
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
-          Programar</a></p>
-      <p class="mb-1">Es un sitio generado con fines estrictamente educativos. No realiza registros ni guarda datos de
-        ningún tipo.</p>
+      <p class="mb-1">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p class="mb-1">Es un sitio generado con fines estrictamente educativos. No realiza registros ni guarda datos de ningún tipo.</p>
     </footer>
   </div>
 
+ 
   <div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -86,9 +83,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quasi sapiente voluptatum deserunt?
-            Deleniti, adipisci vitae in quaerat eius nemo optio? Quas at magni saepe cumque. Delectus perspiciatis omnis
-            accusamus.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
         <div class="modal-footer">
           <div class="form-check">
@@ -103,5 +98,4 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/validacion.js"></script>
 </body>
-
 </html>
