@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
         validateInputs();
         validateTerms(); 
+
       if (!form.checkValidity()) {
         SubmitEvent.preventDefault(); 
         SubmitEvent.stopPropagation();
